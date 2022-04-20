@@ -10,9 +10,10 @@
     },
   };
 
-  // TODO Step 3.1 create a class
+
   /* class GameComponent constructor */
-  function GameComponent() {
+class GameComponent {
+    constructor(){
     // gather parameters from URL
     var params = parseUrl();
 
@@ -21,77 +22,69 @@
     this._size = parseInt(params.size) || 9;
     this._flippedCard = null;
     this._matchedPairs = 0;
-  }
+    }
+  
 
   /* method GameComponent.init */
-  GameComponent.prototype.init = function init() {
+  async init() {
     // fetch the cards configuration from the server
-    this.fetchConfig(
-      function (config) {
-        // TODO Step 3.2: use arrow function
+    const config = await this.fetchConfig();
+    this.fetchConfig()
+      .then((config) => {
+        // done Step 3.2: use arrow function
         this._config = config;
 
         // create a card out of the config
-        this._cards = []; // TODO Step 3.3: use Array.map()
-        for (var i in this._config.ids) {
-          this._cards[i] = new CardComponent(this._config.ids[i]);
-        }
+        this._cards = this._config.ids.map((i) => new CardComponent(i));
 
         this._boardElement = document.querySelector(".cards");
 
-        for (var i in this._cards) {
-          // TODO Step 3.3: use Array.forEach()
-          (function () {
-            // TODO Step 3.2: use arrow function
-            var card = this._cards[i];
+        this._cards.forEach(card => {// TODO Step 3.3: use Array.forEach()
+            // done Step 3.2: use arrow function
             this._boardElement.appendChild(card.getElement());
             card.getElement().addEventListener(
               "click",
-              function () {
+             () => {
                 this._flipCard(card);
-              }.bind(this)
-            ); // TODO Step 3.2 use arrow function.
-          }.bind(this)());
-        }
-
+              }
+            ); // done Step 3.2 use arrow function.
+          });
         this.start();
-      }.bind(this)
-    );
+      });
   };
 
   // TODO Step 7 implement getTemplate() {}
 
   /* method GameComponent.start */
-  GameComponent.prototype.start = function start() {
+  start() {
     this._startTime = Date.now();
     var seconds = 0;
-    // TODO Step 3.2: use template literals (backquotes)
+    // Done Step 3.2: use template literals (backquotes)
     document.querySelector("nav .navbar-title").textContent =
-      "Player: " + this._name + ". Elapsed time: " + seconds++;
+      `Player: ${this._name}. Elapsed time:${seconds++}`;
+      
 
     this._timer = setInterval(
-      function () {
-        // TODO Step 3.2: use arrow function
-        // TODO Step 3.2: use template literals (backquotes)
+      () => {
+        // Done Step 3.2: use arrow function
+        // Done Step 3.2: use template literals (backquotes)
         document.querySelector("nav .navbar-title").textContent =
-          "Player: " + this._name + ". Elapsed time: " + seconds++;
-      }.bind(this),
-      1000
+        `Player:${this._name}. Elapsed time:${seconds++}`;
+      }, 1000
     );
   };
 
-  /* method GameComponent.fetchConfig */
-  GameComponent.prototype.fetchConfig = function fetchConfig(cb) {
+  
+  /* fetchConfig(cb) {
     var xhr =
       typeof XMLHttpRequest != "undefined"
         ? new XMLHttpRequest()
         : new ActiveXObject("Microsoft.XMLHTTP");
+        
+    xhr.open("get", `${environment.api.host}/board?size=${this._size}`, true);
 
-    // TODO Step 3.2 use template literals
-    xhr.open("get", environment.api.host + "/board?size=" + this._size, true);
-
-    // TODO Step 3.2 use arrow function
-    xhr.onreadystatechange = function () {
+    // Done Step 3.2 use arrow function
+    xhr.onreadystatechange = () => {
       var status;
       var data;
       // https://xhr.spec.whatwg.org/#dom-xmlhttprequest-readystate
@@ -107,35 +100,37 @@
       }
     };
     xhr.send();
+    //return cb._id === this._id;
   };
+ */
+  /* method GameComponent.fetchConfig */
+  async fetchConfig() {
+    return fetch(`${environment.api.host}/board?size=${this._size}`, {method: "GET",})
+      .then((response) =>response.json())
+      .catch((error) =>console.log("Error while fetching config: ", error));
+    console.log("on est dans la boucle"); 
+  }; 
 
   /* method GameComponent.gotoScore */
-  GameComponent.prototype.gotoScore = function gotoScore() {
+  gotoScore() {
     var timeElapsedInSeconds = Math.floor(
       (Date.now() - this._startTime) / 1000
     );
     clearInterval(this._timer);
 
     setTimeout(
-      function () {
-        // TODO Step 3.2: use arrow function.
-        
-        // TODO Step 3.2: use template literals (backquotes)
+      () => {
         // TODO Step 7: change path to: `score?name=${this._name}&size=${this._size}'&time=${timeElapsedInSeconds}`;
         window.location =
-          "../score/score.component.html?name=" +
-          this._name +
-          "&size=" +
-          this._size +
-          "&time=" +
-          timeElapsedInSeconds;
-      }.bind(this),
-      750
-    ); // TODO Step 3.2: Why bind(this)?
+        `../score/score.component.html?name=
+        ${this._name}&size=${this._size}&time=
+        ${timeElapsedInSeconds}`;
+      }, 750
+    );
   };
 
   /* method GameComponent._flipCard */
-  GameComponent.prototype._flipCard = function _flipCard(card) {
+  _flipCard(card) {
     if (this._busy) {
       return;
     }
@@ -173,7 +168,7 @@
         // wait a short amount of time before hiding both cards
         // TODO Step 3.2 use arrow function
         setTimeout(
-          function () {
+          () => {
             // hide the cards
             this._flippedCard.flip();
             card.flip();
@@ -181,13 +176,12 @@
 
             // reset flipped card for the next turn.
             this._flippedCard = null;
-          }.bind(this),
-          500
+          }, 500
         );
       }
     }
-  };
-
+  };  
+}
   // TODO Step 6: Move this method to utils.js
   function parseUrl() {
     var url = window.location;
@@ -196,18 +190,16 @@
     var result = {};
 
     var parts = query.split(delimiter);
-    // TODO Step 3.3: Use Array.map() & Array.reduce()
-    for (var i in parts) {
-      var item = parts[i];
-      var kv = item.split("=");
-      result[kv[0]] = kv[1];
-    }
-
-    return result;
+    // Done Step 3.3: Use Array.map() & Array.reduce()
+    return parts
+      .map(item => item.split("="))
+      .reduce((acc, cur) => {
+          acc[cur[0]] = cur[1]
+          return acc
+      }, {});
   }
-
+  
   // put component in global scope, to be runnable right from the HTML.
   // TODO Step 7: export GameComponent
   window.GameComponent = GameComponent;
 })();
-
