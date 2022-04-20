@@ -7,7 +7,7 @@ import template from "./game.component.html";
 import { CardComponent } from "./card/card.component";
 
   // TODO Step 6 remove this closure
-let environment = {
+const environment = {
     api: {
       host: "http://localhost:8081",
     },
@@ -15,7 +15,7 @@ let environment = {
 
 
   /* class GameComponent constructor */
-export class GameComponent  extends Component{
+export class GameComponent extends Component{
     constructor(){
     super("game");
     // gather parameters from URL
@@ -120,21 +120,13 @@ export class GameComponent  extends Component{
 
   /* method GameComponent.gotoScore */
   gotoScore() {
-    var timeElapsedInSeconds = Math.floor(
-      (Date.now() - this._startTime) / 1000
-    );
-    clearInterval(this._timer);
-
-    setTimeout(
-      () => {
-        // TODO Step 7: change path to: `score?name=${this._name}&size=${this._size}'&time=${timeElapsedInSeconds}`;
-        window.location =
-        `../score/score.component.html?name=
-        ${this._name}&size=${this._size}&time=
-        ${timeElapsedInSeconds}`;
-      }, 750
-    );
-  };
+      const timeElapsedInSeconds = Math.floor(
+        (Date.now() - this._startTime) / 1000
+      );
+    
+      setTimeout(() => window.location.hash = 
+      `score?name=${this._name}&size=${this._size}'&time=${timeElapsedInSeconds}`, 750);
+    };
 
   /* method GameComponent._flipCard */
   _flipCard(card) {

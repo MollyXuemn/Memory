@@ -1,7 +1,5 @@
 import "./card.component.css";
-// TODO Step 7 import { Component } from "../../../utils/component";
 import { Component } from "../../../utils/component";
-// TODO Step 7 import template from  "./card.component.html"
 import template from  "./card.component.html";
 
   /* class CardComponent constructor */
@@ -14,18 +12,16 @@ import template from  "./card.component.html";
       this.matched = false;
   
       this._id = id;
-  
-      this._imageElt = this.getElement().querySelector(".card-wrapper");
-     
-      // TODO Step 3.2: use template literals (backquotes)
-      // TODO Step 7: Update the path for images with 'src/app/components/game/card/assets/card***'
+
+      const elt = super.getElement();
+
+      this._imageElt = elt.querySelector('.card-wrapper');
       this._imageElt.querySelector("img.front-face").src =
         require(`./assets/card-${this._id}.png`);
       this._imageElt.querySelector("img.back-face").src =
         require(`./assets/back.png`);
       }
     
-
   /* method CardComponent.getElement */
   // DOne Step 7: remove this method
  
@@ -50,12 +46,12 @@ import template from  "./card.component.html";
   get flipped() {
     return this._flipped;
   }
-  }
+};
   // put component in global scope, to be runnable right from the HTML.
   // TODO Step 7 export CardComponent
-
+/* 
 let environment = {
   api: {
     host: "See that ? Without closures, I can override variables from other files that belongs to the global scope.",
   },
-};
+}; */

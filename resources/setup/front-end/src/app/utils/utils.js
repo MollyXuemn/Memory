@@ -1,6 +1,5 @@
 // front-end/src/app/utils/utils.js
 export function parseUrl() {
-    debugger
     // ... parseUrl implementation
     var url = window.location;
     var query = url.href.split("?")[1] || "";

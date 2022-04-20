@@ -136,4 +136,8 @@ Another problem with transpiling is that the code the browser runs is not the co
 
 ### 7.1 An SPA means a single HTML document will be loaded for the entire life of the application.
 
->
+### 7.2 Play the whole game with size=2. By browsing the 3 views of the application, how many files did your browser download in total? How many time did it took to load them all?
+
+> page1: 5; page2: 11; page3: 12.
+> in total: 12 files(requests)
+> Time is 51.38 s.
