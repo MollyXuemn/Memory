@@ -133,3 +133,7 @@ Another problem with transpiling is that the code the browser runs is not the co
 
 > Webpack is used to compile JavaScript modules.
 > Webpack configs allow you to configure and extend Webpack's basic functionality. A Webpack config is a JavaScript object that configures one of Webpack's options. Most projects define their Webpack config in a top-level webpack. config. js file, although you can also pass the config as a parameter to Webpack's Node.
+
+### 7.1 An SPA means a single HTML document will be loaded for the entire life of the application.
+
+>

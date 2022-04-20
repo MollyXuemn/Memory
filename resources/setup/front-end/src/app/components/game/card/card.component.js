@@ -1,12 +1,13 @@
+import "./card.component.css";
 // TODO Step 7 import { Component } from "../../../utils/component";
+import { Component } from "../../../utils/component";
 // TODO Step 7 import template from  "./card.component.html"
-
-
-  // TODO Step 7 remove this closure
+import template from  "./card.component.html";
 
   /* class CardComponent constructor */
-  class CardComponent {
+  export class CardComponent  extends Component{
     constructor(id){// is this card flipped ?
+      super("card");
       this._flipped = false;
   
       // has the matching card has been discovered already ?
@@ -19,23 +20,19 @@
       // TODO Step 3.2: use template literals (backquotes)
       // TODO Step 7: Update the path for images with 'src/app/components/game/card/assets/card***'
       this._imageElt.querySelector("img.front-face").src =
-     `./card/assets/card-${this._id}.png`;
+        require(`./assets/card-${this._id}.png`);
       this._imageElt.querySelector("img.back-face").src =
-        './card/assets/back.png';}
+        require(`./assets/back.png`);
+      }
     
 
   /* method CardComponent.getElement */
-  // TODO Step 7: remove this method
- getElement() {
-    if (!this._elt) {
-      this._elt = document
-        .getElementById("card-template")
-        .content.cloneNode(true).firstElementChild;
-    }
-    return this._elt;
-  };
-
-  // TODO Step 7 implement getTemplate() {}
+  // DOne Step 7: remove this method
+ 
+  // Done Step 7 implement getTemplate() {}
+  getTemplate() {
+    return template;
+  }
 
   /* method CardComponent.flip */
   flip() {
@@ -56,9 +53,8 @@
   }
   // put component in global scope, to be runnable right from the HTML.
   // TODO Step 7 export CardComponent
-  window.CardComponent = CardComponent;
 
-var environment = {
+let environment = {
   api: {
     host: "See that ? Without closures, I can override variables from other files that belongs to the global scope.",
   },

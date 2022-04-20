@@ -1,10 +1,13 @@
 // TODO Step 6 import { parseUrl } from '../../utils/utils.js';
 import { parseUrl } from "../../utils/utils";
 // TODO Step 7 import { Component } from "../../utils/component";
+import { Component } from "../../utils/component";
 // TODO Step 7 import template from "./game.component.html"
+import template from "./game.component.html";
+import { CardComponent } from "./card/card.component";
 
   // TODO Step 6 remove this closure
-  let environment = {
+let environment = {
     api: {
       host: "http://localhost:8081",
     },
@@ -12,10 +15,11 @@ import { parseUrl } from "../../utils/utils";
 
 
   /* class GameComponent constructor */
-class GameComponent {
+export class GameComponent  extends Component{
     constructor(){
+    super("game");
     // gather parameters from URL
-    var params = parseUrl();
+    const params = parseUrl();
  
     // save player name & game ize
     this._name = params.name;
@@ -54,6 +58,9 @@ class GameComponent {
   };
 
   // TODO Step 7 implement getTemplate() {}
+  getTemplate() {
+    return template;
+  }
 
   /* method GameComponent.start */
   start() {
@@ -185,4 +192,4 @@ class GameComponent {
 
   // put component in global scope, to be runnable right from the HTML.
   // TODO Step 7: export GameComponent
-  window.GameComponent = GameComponent;
+
