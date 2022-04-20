@@ -31,7 +31,6 @@
     // TODO Step 7 implement getTemplate() {}
 
     function _startGame(name, size) {
-        // Done Step 3.2: use template literals (backquotes)
         // TODO Step 7: change path to: `game?name=${name}=name&size=${size}`
         window.location = `../game/game.component.html?name=${name}&size=${size}`;
     }

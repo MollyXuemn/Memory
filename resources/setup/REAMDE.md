@@ -97,3 +97,26 @@
 ### 4.1.2 What version of ECMAScript async / await was released in?
 
 > ECMAScript 2017 JavaScript edition.
+
+### 5.1.1 What does the @ symbol mean in @babel/\*\*\*?
+
+**_ Did you notice, babel packages are installed as a devDependencies. _**
+
+> 使用 @ 的格式，表示作用域，指定版本，latest 表示最新模板；我们在下载其他模块时也是这个格式。
+> @: Some npm packages have a scope. Scopes are preceded by the “at” sign, for example @testing-library/react. The scope is “testing-library”, the package name is “react.” Only the organization that owns a scope can add packages to it, so you can be sure that you are using official code. A scoped package cannot be fetched just by using its name.
+
+### 5.1.2 Look at the files produced within dist/ folder. How babel transpile your class WelcomeComponent?
+
+> It changes the format of the file.
+
+### 5.1.3 What is the weight of the transpiled sources compared to your original sources?
+
+> This can be seen as a negligible time when you start to dev your new app, but it is going to grow and grow as your app gets bigger and more complex. If you choose to transpile, you lose this advantage, and not only this advantage.
+
+Another problem with transpiling is that the code the browser runs is not the code you have written. So, debugging and optimizing performance can become really tricky.
+
+#### Debugger
+
+> add breakpoint in the code or the browser inspecter
+> in the browser ctrl + B: search the document
+> link VScode with browser:
