@@ -1,10 +1,10 @@
 // TODO Step 6 import { parseUrl } from '../../utils/utils.js';
+import { parseUrl } from "../../utils/utils";
 // TODO Step 7 import { Component } from "../../utils/component";
 // TODO Step 7 import template from "./game.component.html"
 
-(function () {
   // TODO Step 6 remove this closure
-  var environment = {
+  let environment = {
     api: {
       host: "http://localhost:8081",
     },
@@ -16,7 +16,7 @@ class GameComponent {
     constructor(){
     // gather parameters from URL
     var params = parseUrl();
-
+ 
     // save player name & game ize
     this._name = params.name;
     this._size = parseInt(params.size) || 9;
@@ -176,30 +176,13 @@ class GameComponent {
 
             // reset flipped card for the next turn.
             this._flippedCard = null;
-          }, 500
-        );
+          }, 500);
       }
     }
   };  
 }
-  // TODO Step 6: Move this method to utils.js
-  function parseUrl() {
-    var url = window.location;
-    var query = url.href.split("?")[1] || "";
-    var delimiter = "&";
-    var result = {};
+  // Step6: front-end/src/app/utils/utils.js
 
-    var parts = query.split(delimiter);
-    // Done Step 3.3: Use Array.map() & Array.reduce()
-    return parts
-      .map(item => item.split("="))
-      .reduce((acc, cur) => {
-          acc[cur[0]] = cur[1]
-          return acc
-      }, {});
-  }
-  
   // put component in global scope, to be runnable right from the HTML.
   // TODO Step 7: export GameComponent
   window.GameComponent = GameComponent;
-})();

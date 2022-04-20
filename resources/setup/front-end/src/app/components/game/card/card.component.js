@@ -1,10 +1,9 @@
 // TODO Step 7 import { Component } from "../../../utils/component";
 // TODO Step 7 import template from  "./card.component.html"
 
-(function card() {
+
   // TODO Step 7 remove this closure
 
-  
   /* class CardComponent constructor */
   class CardComponent {
     constructor(id){// is this card flipped ?
@@ -58,7 +57,6 @@
   // put component in global scope, to be runnable right from the HTML.
   // TODO Step 7 export CardComponent
   window.CardComponent = CardComponent;
-})();
 
 var environment = {
   api: {

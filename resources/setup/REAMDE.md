@@ -120,3 +120,16 @@ Another problem with transpiling is that the code the browser runs is not the co
 > add breakpoint in the code or the browser inspecter
 > in the browser ctrl + B: search the document
 > link VScode with browser:
+
+### 6.1.1 What is the difference between import \* from './utils' and import { parseUrl } from './utils'?
+
+> import \* means import every modules in utils file, but import { parseUrl } means import only parseUrl module from utils.
+
+### 6.2.1 Why the utils.js will also be transpiled?
+
+> Because it is imported to the main.js -- { parseUrl } from "./app/utils/utils";
+
+### 6.2.2 What does the webpack --config webpack.config.js do ?
+
+> Webpack is used to compile JavaScript modules.
+> Webpack configs allow you to configure and extend Webpack's basic functionality. A Webpack config is a JavaScript object that configures one of Webpack's options. Most projects define their Webpack config in a top-level webpack. config. js file, although you can also pass the config as a parameter to Webpack's Node.
