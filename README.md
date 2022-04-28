@@ -33,5 +33,7 @@ Clone down this repository. You will need `node.js` and `git `installed globally
 
 🔹 **_ Usage Instructions _** 🔹 <br/>
 
-1. Open the project folder and Navigate to `Memory/resources/setu p/front-end/src/app/components`.
+1. Open the project folder and Navigate to `Memory/resources/setup/front-end/src/app/components`.
 2. You will find all the components used and you can edit your information accordingly.
+
+3. For Questions in TP, please go to the `Memory/resources/setup/README.md`.

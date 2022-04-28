@@ -1,10 +1,8 @@
-**_ Notes _**
+bb# Notes
 
-> this:随着函数使用场合的不同，this 的值会发生变化。但是有一个总的原则，那就是 this 指的是，调用函数的那个对象。进一步说，this 和它声明环境无关，而完全取决于他的执行环境。
+> `this`:随着函数使用场合的不同，this 的值会发生变化。但是有一个总的原则，那就是 this 指的是，调用函数的那个对象。进一步说，this 和它声明环境无关，而完全取决于他的执行环境。
 
--
-- this 指的是函数运行时所在的环境。
--
+- this 指的是函数运行时所在的环境。</br>
 
 ### js 输出 arg：
 
@@ -15,17 +13,18 @@
 
 ### stream:
 
-> ['a','b','c'].map(x => x.toUpperCase())
-> .filter(x => x >= 'C')
-> .forEach(x => x+ 5) **???**
+> ['a','b','c'].map(</br>
+> x => x.toUpperCase())</br>
+> .filter(x => x >= 'C')</br>
+> .forEach(x => x+ 5) </br>
 
 ### .reduce((total, val) => val + total, 0);
 
-> reducer 逐个遍历数组元素，每一步都将当前元素的值与上一步的计算结果相加（上一步的计算结果是当前元素之前所有元素的总和）——直到没有更多的元素被相加。
+> reducer 逐个遍历数组元素，每一步都将当前元素的值与上一步的计算结果相加（上一步的计算结果是当前元素之前所有元素的总和）——直到没有更多的元素被相加。</br>
 
 ### callback function: pass the value to the function, recall the same function
 
-**_ Questions _**
+# Questions
 
 ### Step 0: Play the whole game with size=2. By browsing the 3 views of the application, how many files did your browser download overall? How many time did it took to load them all?
 
@@ -40,7 +39,7 @@
 
 ### Step 1: Component-oriented programming for the web is considered more maintainable. Why?
 
-> Yes because they are more easy to manage and move between files, and Component-oriented programming a simple, elementary piece of code
+> Yes because they are more easy to manage and move between files, and Component-oriented programming a simple, elementary piece of code:
 
     - reusable: easy to invoke several times, all over an application
     - standalone and with low counompling: it does not depends much on other components
@@ -61,6 +60,7 @@
 > | ---------- | :-----------: | :-----------: |
 > | major | minor | patch |
 > Instead of specifying the exact version to be installed in package.json, npm allows you to widen the range of accepted versions. You can allow a newer patch level version with tilde (~) and newer minor or patch level version with caret (^).
+> </br>
 
 ### 2.3: What is a devDependency exactly? What are the differences with a dependency?
 
