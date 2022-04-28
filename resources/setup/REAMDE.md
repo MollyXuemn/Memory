@@ -1,3 +1,5 @@
+**_ Notes _**
+
 > this:随着函数使用场合的不同，this 的值会发生变化。但是有一个总的原则，那就是 this 指的是，调用函数的那个对象。进一步说，this 和它声明环境无关，而完全取决于他的执行环境。
 
 -
@@ -22,6 +24,8 @@
 > reducer 逐个遍历数组元素，每一步都将当前元素的值与上一步的计算结果相加（上一步的计算结果是当前元素之前所有元素的总和）——直到没有更多的元素被相加。
 
 ### callback function: pass the value to the function, recall the same function
+
+**_ Questions _**
 
 ### Step 0: Play the whole game with size=2. By browsing the 3 views of the application, how many files did your browser download overall? How many time did it took to load them all?
 
@@ -113,13 +117,13 @@
 
 > This can be seen as a negligible time when you start to dev your new app, but it is going to grow and grow as your app gets bigger and more complex. If you choose to transpile, you lose this advantage, and not only this advantage.
 
-Another problem with transpiling is that the code the browser runs is not the code you have written. So, debugging and optimizing performance can become really tricky.
+> Another problem with transpiling is that the code the browser runs is not the code you have written. So, debugging and optimizing performance can become really tricky.
 
-#### Debugger
+#### 5.1.4 Debugger
 
-> add breakpoint in the code or the browser inspecter
-> in the browser ctrl + B: search the document
-> link VScode with browser:
+> add breakpoint in the code or the browser inspecter</br>
+> in the browser ctrl + B: search the document</br>
+> link VScode with browser
 
 ### 6.1.1 What is the difference between import \* from './utils' and import { parseUrl } from './utils'?
 
@@ -127,17 +131,17 @@ Another problem with transpiling is that the code the browser runs is not the co
 
 ### 6.2.1 Why the utils.js will also be transpiled?
 
-> Because it is imported to the main.js -- { parseUrl } from "./app/utils/utils";
+> Because it is imported to the main.js --> ` { parseUrl } from "./app/utils/utils";`
 
 ### 6.2.2 What does the webpack --config webpack.config.js do ?
 
-> Webpack is used to compile JavaScript modules.
+> Webpack is used to compile JavaScript modules.</br>
 > Webpack configs allow you to configure and extend Webpack's basic functionality. A Webpack config is a JavaScript object that configures one of Webpack's options. Most projects define their Webpack config in a top-level webpack. config. js file, although you can also pass the config as a parameter to Webpack's Node.
 
 ### 7.1 An SPA means a single HTML document will be loaded for the entire life of the application.
 
 ### 7.2 Play the whole game with size=2. By browsing the 3 views of the application, how many files did your browser download in total? How many time did it took to load them all?
 
-> page1: 5; page2: 11; page3: 12.
-> in total: 12 files(requests)
-> Time is 51.38 s.
+> page1: 5; page2: 11; page3: 12. </br>
+> In total: 12 files(requests)</br>
+> Time is 51.38 s.</br>
