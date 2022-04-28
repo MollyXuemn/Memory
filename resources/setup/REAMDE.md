@@ -1,22 +1,19 @@
-bb# Notes
+# Notes
 
 > `this`:随着函数使用场合的不同，this 的值会发生变化。但是有一个总的原则，那就是 this 指的是，调用函数的那个对象。进一步说，this 和它声明环境无关，而完全取决于他的执行环境。
 
-- this 指的是函数运行时所在的环境。</br>
+- `this` 指的是函数运行时所在的环境。</br>
 
 ### js 输出 arg：
 
-> function log(...args){ // varags}
+> `function log(...args){ // varags}`
 
 - console.log(...args) //输出所有 arguments，相当于['1','2','3']
 - merge objects:
 
 ### stream:
 
-> ['a','b','c'].map(</br>
-> x => x.toUpperCase())</br>
-> .filter(x => x >= 'C')</br>
-> .forEach(x => x+ 5) </br>
+> `['a','b','c'].map(`</br> > `x => x.toUpperCase())`</br> > `.filter(x => x >= 'C')`</br> > `.forEach(x => x+ 5)` </br>
 
 ### .reduce((total, val) => val + total, 0);
 
@@ -81,7 +78,7 @@ bb# Notes
 
 > "Bind" is used to change the point of "this". Deleting it will cause the point of "this" to change and eventually cause the function to return "undefined" or report an error.
 
-- () => {} === (function(){}).bind(this);
+- `() => {} === (function(){}).bind(this);`
 
 ### 3.2.1 What are the differences between var and let？
 
@@ -142,6 +139,6 @@ bb# Notes
 
 ### 7.2 Play the whole game with size=2. By browsing the 3 views of the application, how many files did your browser download in total? How many time did it took to load them all?
 
-> page1: 5; page2: 11; page3: 12. </br>
-> In total: 12 files(requests)</br>
-> Time is 51.38 s.</br>
+> - page1: 5; page2: 11; page3: 12. </br>
+> - In total: 12 files(requests)</br>
+> - Time is 51.38 s.</br>
